@@ -1,0 +1,118 @@
+<clr-stack-view>
+    <clr-stack-header>
+      History editor
+      <button class="stack-action btn btn-sm btn-link" (click)="editModal = true" type="button">Edit</button>
+    </clr-stack-header>
+    <clr-stack-block *ngFor="let rec of stackHistory; let i = index">
+      <clr-stack-label>Record {{i+1}}</clr-stack-label>
+      <clr-stack-block>
+        <clr-stack-label>Install id</clr-stack-label>
+        <clr-stack-content>{{rec['installId']}}</clr-stack-content>
+      </clr-stack-block>
+      <clr-stack-block>
+        <clr-stack-label>Config status</clr-stack-label>
+        <clr-stack-content>{{rec['configStatus']}}</clr-stack-content>
+      </clr-stack-block>
+      <clr-stack-block>
+        <clr-stack-label>Date</clr-stack-label>
+        <clr-stack-content>{{rec['date']}}</clr-stack-content>
+      </clr-stack-block>
+      <clr-stack-block>
+        <clr-stack-label>Config name</clr-stack-label>
+        <clr-stack-content>{{rec['configName']}}</clr-stack-content>
+      </clr-stack-block>
+      <clr-stack-block>
+        <clr-stack-label>Install method</clr-stack-label>
+        <clr-stack-content>{{rec['installMethod']}}</clr-stack-content>
+      </clr-stack-block>
+      <clr-stack-block>
+        <clr-stack-label>Nodes</clr-stack-label>
+        <clr-stack-block *ngFor="let node of rec['nodes']; let nodeIdx = index">
+          <clr-stack-label>Node {{nodeIdx+1}}</clr-stack-label>
+          <clr-stack-block>
+            <clr-stack-label>Host</clr-stack-label>
+            <clr-stack-content>{{node['host']}}</clr-stack-content>
+          </clr-stack-block>
+          <clr-stack-block>
+            <clr-stack-label>Status</clr-stack-label>
+            <clr-stack-content>{{node['status']}}</clr-stack-content>
+          </clr-stack-block>
+          <clr-stack-block>
+            <clr-stack-label>Message</clr-stack-label>
+            <clr-stack-content>{{node['message']}}</clr-stack-content>
+          </clr-stack-block>
+        </clr-stack-block>
+        </clr-stack-block>
+    </clr-stack-block>
+</clr-stack-view>
+<clr-modal [(clrModalOpen)]="editModal">
+  <h3 class="modal-title">Edit mode</h3>
+  <div class="modal-body">
+    <clr-stack-view>
+      <clr-stack-block
+        *ngFor="let rec of editableHistory; let i = index">
+        <clr-stack-label>Record {{i+1}}</clr-stack-label>
+        <clr-stack-block>
+          <clr-stack-label>Install id</clr-stack-label>
+          <clr-stack-content>
+            <input type="text" clrStackInput [(ngModel)]="rec['installId']" />
+          </clr-stack-content>
+        </clr-stack-block>
+        <clr-stack-block>
+          <clr-stack-label>Config status</clr-stack-label>
+          <clr-stack-content>
+            <input type="text" clrStackInput [(ngModel)]="rec['configStatus']" />
+          </clr-stack-content>
+        </clr-stack-block>
+        <clr-stack-block>
+          <clr-stack-label>Date</clr-stack-label>
+          <clr-stack-content>
+            <input type="text" clrStackInput [(ngModel)]="rec['date']" />
+          </clr-stack-content>
+        </clr-stack-block>
+        <clr-stack-block>
+          <clr-stack-label>Config name</clr-stack-label>
+          <clr-stack-content>
+            <input type="text" clrStackInput [(ngModel)]="rec['configName']" />
+          </clr-stack-content>
+        </clr-stack-block>
+        <clr-stack-block>
+          <clr-stack-label>Install method</clr-stack-label>
+          <clr-stack-content>
+            <input type="text" clrStackInput [(ngModel)]="rec['installMethod']" />
+          </clr-stack-content>
+        </clr-stack-block>
+        <clr-stack-block>
+          <clr-stack-label>Nodes</clr-stack-label>
+          <clr-stack-block *ngFor="let node of rec['nodes']; let nodeIdx = index">
+            <clr-stack-label>Node {{nodeIdx+1}}</clr-stack-label>
+            <clr-stack-block>
+              <clr-stack-label>Host</clr-stack-label>
+              <clr-stack-content>
+                <input type="text" clrStackInput [(ngModel)]="node['host']" />
+              </clr-stack-content>
+            </clr-stack-block>
+            <clr-stack-block>
+              <clr-stack-label>Status</clr-stack-label>
+              <clr-stack-content>
+                <input type="text" clrStackInput [(ngModel)]="node['status']" />
+              </clr-stack-content>
+            </clr-stack-block>
+            <clr-stack-block>
+              <clr-stack-label>Message</clr-stack-label>
+              <clr-stack-content>
+                <input type="text" clrStackInput [(ngModel)]="node['message']" />
+              </clr-stack-content>
+            </clr-stack-block>
+          </clr-stack-block>
+          </clr-stack-block>
+      </clr-stack-block>
+    </clr-stack-view>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary"
+      (click)="changeHistory(); editModal = false">
+      Done
+    </button>
+  </div>
+</clr-modal>

@@ -1,0 +1,19 @@
+<clr-datagrid>
+  <clr-dg-column>History install ID</clr-dg-column>
+  <clr-dg-column>Config status</clr-dg-column>
+  <clr-dg-column>Date</clr-dg-column>
+  <clr-dg-column>Config name</clr-dg-column>
+  <clr-dg-column>Install method</clr-dg-column>
+  <clr-dg-column>Nodes</clr-dg-column>
+
+  <clr-dg-row *ngFor="let rec of dataGridHistory;">
+    <clr-dg-cell>{{rec.installId}}</clr-dg-cell>
+    <clr-dg-cell>{{rec.configStatus}}</clr-dg-cell>
+    <clr-dg-cell>{{rec.date}}</clr-dg-cell>
+    <clr-dg-cell>{{rec.configName}}</clr-dg-cell>
+    <clr-dg-cell>{{rec.installMethod}}</clr-dg-cell>
+    <clr-dg-cell>Nodes data grid</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{dataGridHistory.length}} records</clr-dg-footer>
+</clr-datagrid>

@@ -1,0 +1,68 @@
+<clr-tree>
+  <clr-tree-node>
+    History
+    <clr-tree-node *ngFor="let rec of treeHistory; let i = index;">
+      Record {{i+1}}
+
+      <clr-tree-node>
+        Install id
+        <clr-tree-node>
+          {{rec['installId']}}
+        </clr-tree-node>
+      </clr-tree-node>
+
+      <clr-tree-node>
+        Config status
+        <clr-tree-node>
+          {{rec['configStatus']}}
+        </clr-tree-node>
+      </clr-tree-node>
+
+      <clr-tree-node>
+        Date
+        <clr-tree-node>
+          {{rec['date']}}
+        </clr-tree-node>
+      </clr-tree-node>
+
+      <clr-tree-node>
+        Config name
+        <clr-tree-node>
+          {{rec['configName']}}
+        </clr-tree-node>
+      </clr-tree-node>
+
+      <clr-tree-node>
+        Install method
+        <clr-tree-node>
+          {{rec['installMethod']}}
+        </clr-tree-node>
+      </clr-tree-node>
+
+      <clr-tree-node>
+        Nodes
+          <clr-tree-node *ngFor="let node of rec['nodes']; let nodeIdx = index">
+          Node {{nodeIdx+1}}
+            <clr-tree-node>
+              Host
+              <clr-tree-node>
+                {{node['host']}}
+              </clr-tree-node>
+            </clr-tree-node>
+            <clr-tree-node>
+              Status
+              <clr-tree-node>
+                {{node['status']}}
+              </clr-tree-node>
+            </clr-tree-node>
+            <clr-tree-node>
+              Message
+              <clr-tree-node>
+                {{node['message']}}
+              </clr-tree-node>
+            </clr-tree-node>
+          </clr-tree-node>
+        </clr-tree-node>
+
+    </clr-tree-node>
+  <clr-tree-node>

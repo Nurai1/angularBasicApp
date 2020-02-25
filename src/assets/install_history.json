@@ -1,0 +1,303 @@
+[
+    {
+        "configStatus": "not_changed",
+        "date": 1535389814000,
+        "configName": "config (copy 1)",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "failure",
+                "message": "Failed"
+            },
+            {
+                "host": "vte2",
+                "status": "skipped",
+                "message": "Skipped"
+            }
+        ],
+        "installId": "0001"
+    },
+    {
+        "configStatus": "not_changed",
+        "date": 1535389580000,
+        "configName": "config (copy 1)",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "failure",
+                "message": "Failed"
+            },
+            {
+                "host": "vte2",
+                "status": "failure",
+                "message": "Failed"
+            }
+        ],
+        "installId": "0002"
+    },
+    {
+        "configStatus": "modified",
+        "date": 1535389200000,
+        "configName": "config (copy 1)",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "failure",
+                "message": "Failed"
+            }
+        ],
+        "installId": "0003"
+    },
+    {
+        "configStatus": "modified",
+        "date": 1535388397000,
+        "configName": "config (copy 1)",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "skipped",
+                "message": "Skipped"
+            }
+        ],
+        "installId": "0004"
+    },
+    {
+        "configStatus": "not_changed",
+        "date": 1534856431000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ],
+        "installId": "0005"
+    },
+    {
+        "configStatus": "not_changed",
+        "date": 1534527090000,
+        "configName": "config",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1534430628000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1534430559000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1534430518000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1531225521000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "deleted",
+        "date": 1521123990000,
+        "configName": "test3",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "failure",
+                "message": "Failed"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1521123710000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1521123181000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "deleted",
+        "date": 1521046397000,
+        "configName": "new_config2",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "deleted",
+        "date": 1521046037000,
+        "configName": "new_test",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "deleted",
+        "date": 1521045905000,
+        "configName": "test2",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1521042852000,
+        "configName": "test",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1518095652000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1518090676000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1517563362000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1517508087000,
+        "configName": "dummy",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "success",
+                "message": "Succeeded"
+            }
+        ]
+    },
+    {
+        "configStatus": "modified",
+        "date": 1517506889000,
+        "configName": "config",
+        "installMethod": "Replace",
+        "nodes": [
+            {
+                "host": "vte1",
+                "status": "failure",
+                "message": "Failed"
+            }
+        ]
+    }
+]

@@ -12,8 +12,23 @@
     <clr-dg-cell>{{rec.date}}</clr-dg-cell>
     <clr-dg-cell>{{rec.configName}}</clr-dg-cell>
     <clr-dg-cell>{{rec.installMethod}}</clr-dg-cell>
-    <clr-dg-cell>Nodes data grid</clr-dg-cell>
+    <clr-dg-cell>Nodes table</clr-dg-cell>
   </clr-dg-row>
-
   <clr-dg-footer>{{dataGridHistory.length}} records</clr-dg-footer>
+</clr-datagrid>
+<clr-datagrid>
+  <clr-dg-column>History install ID</clr-dg-column>
+  <clr-dg-column>Node index</clr-dg-column>
+  <clr-dg-column>Host</clr-dg-column>
+  <clr-dg-column>Status</clr-dg-column>
+  <clr-dg-column>Message</clr-dg-column>
+  <ng-container *ngFor="let rec of dataGridHistory;">
+  <clr-dg-row *ngFor="let node of rec.nodes; let i = index;">
+    <clr-dg-cell>{{rec.installId}}</clr-dg-cell>
+    <clr-dg-cell>{{i}}</clr-dg-cell>
+    <clr-dg-cell>{{node.host}}</clr-dg-cell>
+    <clr-dg-cell>{{node.status}}</clr-dg-cell>
+    <clr-dg-cell>{{node.message}}</clr-dg-cell>
+  </clr-dg-row>
+  </ng-container>
 </clr-datagrid>

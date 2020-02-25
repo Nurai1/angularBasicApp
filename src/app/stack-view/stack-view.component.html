@@ -3,8 +3,8 @@
       History editor
       <button class="stack-action btn btn-sm btn-link" (click)="editModal = true" type="button">Edit</button>
     </clr-stack-header>
-    <clr-stack-block *ngFor="let rec of stackHistory; let i = index">
-      <clr-stack-label>Record {{i+1}}</clr-stack-label>
+    <clr-stack-block *ngFor="let rec of sortedHistory; let i = index">
+      <clr-stack-label>Record {{rec['installId']}}</clr-stack-label>
       <clr-stack-block>
         <clr-stack-label>Install id</clr-stack-label>
         <clr-stack-content>{{rec['installId']}}</clr-stack-content>
@@ -51,7 +51,7 @@
     <clr-stack-view>
       <clr-stack-block
         *ngFor="let rec of editableHistory; let i = index">
-        <clr-stack-label>Record {{i+1}}</clr-stack-label>
+        <clr-stack-label>Record {{rec['installId']}}</clr-stack-label>
         <clr-stack-block>
           <clr-stack-label>Install id</clr-stack-label>
           <clr-stack-content>

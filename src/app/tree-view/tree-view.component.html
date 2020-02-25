@@ -2,7 +2,7 @@
   <clr-tree-node>
     History
     <clr-tree-node *ngFor="let rec of treeHistory; let i = index;">
-      Record {{i+1}}
+      Record {{rec['installId']}}
 
       <clr-tree-node>
         Install id

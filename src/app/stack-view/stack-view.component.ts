@@ -1,4 +1,4 @@
-import { Input, Component, OnChanges, OnInit } from '@angular/core';
+import { Input, Component, OnChanges, DoCheck } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -6,10 +6,10 @@ import { NgForm } from '@angular/forms';
   templateUrl: './stack-view.component.html',
   styleUrls: ['./stack-view.component.sass']
 })
-export class StackViewComponent implements OnChanges, OnInit {
+export class StackViewComponent implements OnChanges, DoCheck {
    @Input() stackHistory: Array<object>;
    editableHistory: Array<object> = [];
-   temp: Array<object> = [];
+   sortedHistory: Array<object> = [];
    editModal: boolean = false;
 
   constructor() {}
@@ -21,6 +21,7 @@ export class StackViewComponent implements OnChanges, OnInit {
   changeHistory() {
     for (let i=0; i<this.stackHistory.length; i++){
       this.stackHistory[i] = this.makeClone(this.editableHistory[i]);
+      this.sortedHistory[i] = this.makeClone(this.stackHistory[i]);
     }
   }
 
@@ -35,20 +36,21 @@ export class StackViewComponent implements OnChanges, OnInit {
       }
       return clone;
     }
-    let clone = {}; // Создаем новый пустой объект
-    for (let prop in obj) { // Перебираем все свойства копируемого объекта
-      if (obj.hasOwnProperty(prop)) { // Только собственные свойства
-        if ("object"===typeof obj[prop]) // Если свойство так же объект
-          clone[prop] = this.makeClone(obj[prop]); // Делаем клон свойства
+    let clone = {};
+    for (let prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        if ("object"===typeof obj[prop])
+          clone[prop] = this.makeClone(obj[prop]);
         else
-          clone[prop] = obj[prop]; // Или же просто копируем значение
+          clone[prop] = obj[prop];
       }
     }
     return clone;
   }
 
-  ngOnChanges(): void {
-    this.stackHistory.sort((item1: object, item2: object) =>{
+  stackHistorySort(){
+    if (this.sortedHistory === undefined) return;
+    this.sortedHistory.sort((item1: object, item2: object) =>{
       if (item1["installMethod"] < item2["installMethod"]) {
         return -1;
       }
@@ -56,14 +58,19 @@ export class StackViewComponent implements OnChanges, OnInit {
         return 1;
       }
       return 0;
-    });
+    })
+  }
+
+  ngOnChanges(): void {
+    this.stackHistorySort();
 
     for (let i=0; i<this.stackHistory.length; i++){
       this.editableHistory[i] = this.makeClone(this.stackHistory[i]);
+      this.sortedHistory[i] = this.makeClone(this.stackHistory[i]);
     }
   }
 
-  ngOnInit(): void {
-
+  ngDoCheck(): void {
+    this.stackHistorySort();
   }
 }

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   getHistory() {
     return this.http.get('assets/install_history.json')
-      .subscribe((data: Array<object>) => this.history = [ ...data ]);
+      .subscribe((data: Array<object>) => this.history = Array.from(data));
   }
 
   ngOnInit(): void {

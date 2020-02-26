@@ -1,7 +1,9 @@
-<h2 style="text-align: center">Angular Intern App</h2>
-
-<app-tree-view [treeHistory]="history"></app-tree-view>
-<app-stack-view [stackHistory]="history"></app-stack-view>
-<app-datagrid [dataGridHistory]="history"></app-datagrid>
-
-<router-outlet></router-outlet>
+<h2 style="text-align: center; margin-bottom: 20px;">Angular Intern App</h2>
+<div class="app-container">
+  <div class="app__block clearfix">
+    <app-tree-view [treeReferencedHistory]="history"></app-tree-view>
+    <app-stack-view [stackReferencedHistory]="history"></app-stack-view>
+  </div>
+  <app-datagrid [datagridReferencedHistory]="history"></app-datagrid>
+</div>
+<!-- <router-outlet></router-outlet> -->

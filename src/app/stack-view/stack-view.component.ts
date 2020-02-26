@@ -7,21 +7,17 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./stack-view.component.sass']
 })
 export class StackViewComponent implements OnChanges, DoCheck {
-   @Input() stackHistory: Array<object>;
+   @Input() stackReferencedHistory: Array<object>;
    editableHistory: Array<object> = [];
    sortedHistory: Array<object> = [];
    editModal: boolean = false;
 
   constructor() {}
 
-  hack(arr):Array<object> {
-    return Array.from(arr);
-  }
-
   changeHistory() {
-    for (let i=0; i<this.stackHistory.length; i++){
-      this.stackHistory[i] = this.makeClone(this.editableHistory[i]);
-      this.sortedHistory[i] = this.makeClone(this.stackHistory[i]);
+    for (let i=0; i<this.stackReferencedHistory.length; i++){
+      this.stackReferencedHistory[i] = this.makeClone(this.editableHistory[i]);
+      this.sortedHistory[i] = this.makeClone(this.stackReferencedHistory[i]);
     }
   }
 
@@ -48,7 +44,7 @@ export class StackViewComponent implements OnChanges, DoCheck {
     return clone;
   }
 
-  stackHistorySort(){
+  stackReferencedHistorySort(){
     if (this.sortedHistory === undefined) return;
     this.sortedHistory.sort((item1: object, item2: object) =>{
       if (item1["installMethod"] < item2["installMethod"]) {
@@ -62,15 +58,15 @@ export class StackViewComponent implements OnChanges, DoCheck {
   }
 
   ngOnChanges(): void {
-    this.stackHistorySort();
+    this.stackReferencedHistorySort();
 
-    for (let i=0; i<this.stackHistory.length; i++){
-      this.editableHistory[i] = this.makeClone(this.stackHistory[i]);
-      this.sortedHistory[i] = this.makeClone(this.stackHistory[i]);
+    for (let i=0; i<this.stackReferencedHistory.length; i++){
+      this.editableHistory[i] = this.makeClone(this.stackReferencedHistory[i]);
+      this.sortedHistory[i] = this.makeClone(this.stackReferencedHistory[i]);
     }
   }
 
   ngDoCheck(): void {
-    this.stackHistorySort();
+    this.stackReferencedHistorySort();
   }
 }

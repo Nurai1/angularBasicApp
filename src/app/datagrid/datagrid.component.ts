@@ -6,7 +6,7 @@ import { Input, Component, OnInit } from '@angular/core';
   styleUrls: ['./datagrid.component.sass']
 })
 export class DatagridComponent implements OnInit {
-  @Input() dataGridHistory: Array<object>;
+  @Input() datagridReferencedHistory: Array<object>;
   constructor() { }
 
   ngOnInit(): void {

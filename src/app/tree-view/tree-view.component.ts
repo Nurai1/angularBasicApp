@@ -6,13 +6,13 @@ import { Input, Component, OnChanges, DoCheck } from '@angular/core';
   styleUrls: ['./tree-view.component.sass']
 })
 export class TreeViewComponent implements OnChanges, DoCheck {
-   @Input() treeHistory: Array<object>;
+   @Input() treeReferencedHistory: Array<object>;
 
   constructor() {}
 
-  treeHistorySort(){
-    if (this.treeHistory === undefined) return;
-    this.treeHistory.sort((item1: object, item2: object) =>{
+  treeReferencedHistorySort(){
+    if (this.treeReferencedHistory === undefined) return;
+    this.treeReferencedHistory.sort((item1: object, item2: object) =>{
       if (item1["configStatus"] < item2["configStatus"]) {
         return -1;
       }
@@ -24,16 +24,16 @@ export class TreeViewComponent implements OnChanges, DoCheck {
   }
 
   histroryDateToString(){
-    for (let item of this.treeHistory){
+    for (let item of this.treeReferencedHistory){
       item['date'] = (new Date(item['date'])).toDateString();
     }
   }
 
   ngOnChanges(): void {
-    this.treeHistorySort();
+    this.treeReferencedHistorySort();
     this.histroryDateToString();
   }
   ngDoCheck():void {
-    this.treeHistorySort();
+    this.treeReferencedHistorySort();
   }
 }

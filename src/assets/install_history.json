@@ -125,7 +125,7 @@
         "configStatus": "modified",
         "date": 1534430518000,
         "configName": "dummy",
-        "installMethod": "Replace",
+        "installMethod": "Standart",
         "nodes": [
             {
                 "host": "vte1",
@@ -139,7 +139,7 @@
         "configStatus": "modified",
         "date": 1531225521000,
         "configName": "dummy",
-        "installMethod": "Replace",
+        "installMethod": "Standart",
         "nodes": [
             {
                 "host": "vte1",
@@ -153,7 +153,7 @@
         "configStatus": "deleted",
         "date": 1521123990000,
         "configName": "test3",
-        "installMethod": "Replace",
+        "installMethod": "Standart",
         "nodes": [
             {
                 "host": "vte1",
@@ -209,7 +209,7 @@
         "configStatus": "deleted",
         "date": 1521046037000,
         "configName": "new_test",
-        "installMethod": "Replace",
+        "installMethod": "Fast",
         "nodes": [
             {
                 "host": "vte1",
@@ -237,7 +237,7 @@
         "configStatus": "modified",
         "date": 1521042852000,
         "configName": "test",
-        "installMethod": "Replace",
+        "installMethod": "Fast",
         "nodes": [
             {
                 "host": "vte1",
@@ -251,7 +251,7 @@
         "configStatus": "modified",
         "date": 1518095652000,
         "configName": "dummy",
-        "installMethod": "Replace",
+        "installMethod": "Fast",
         "nodes": [
             {
                 "host": "vte1",

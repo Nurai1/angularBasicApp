@@ -1,4 +1,4 @@
-<clr-stack-view>
+<clr-stack-view class="app__stack">
     <clr-stack-header>
       History editor
       <button class="stack-action btn btn-sm btn-link" (click)="editModal = true" type="button">Edit</button>
@@ -27,7 +27,7 @@
       </clr-stack-block>
       <clr-stack-block>
         <clr-stack-label>Nodes</clr-stack-label>
-        <clr-stack-block *ngFor="let node of hack(rec['nodes']); let nodeIdx = index">
+        <clr-stack-block *ngFor="let node of rec['nodes']; let nodeIdx = index">
           <clr-stack-label>Node {{nodeIdx+1}}</clr-stack-label>
           <clr-stack-block>
             <clr-stack-label>Host</clr-stack-label>
@@ -84,7 +84,7 @@
         </clr-stack-block>
         <clr-stack-block>
           <clr-stack-label>Nodes</clr-stack-label>
-          <clr-stack-block *ngFor="let node of hack(rec['nodes']); let nodeIdx = index">
+          <clr-stack-block *ngFor="let node of rec['nodes']; let nodeIdx = index">
             <clr-stack-label>Node {{nodeIdx+1}}</clr-stack-label>
             <clr-stack-block>
               <clr-stack-label>Host</clr-stack-label>

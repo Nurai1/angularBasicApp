@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UtilsService } from './utils.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
+  providers: [UtilsService]
 })
 export class AppComponent implements OnInit {
   history: Array<object>;
 
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient, private svc: UtilsService) {
+
   }
 
   getHistory() {

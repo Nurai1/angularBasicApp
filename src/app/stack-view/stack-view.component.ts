@@ -1,72 +1,42 @@
-import { Input, Component, OnChanges, DoCheck } from '@angular/core';
+import { Input, Component, OnChanges, DoCheck, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UtilsService } from '../utils.service';
 
 @Component({
   selector: 'app-stack-view',
   templateUrl: './stack-view.component.html',
-  styleUrls: ['./stack-view.component.sass']
+  styleUrls: ['./stack-view.component.sass'],
+  providers: [UtilsService]
 })
-export class StackViewComponent implements OnChanges, DoCheck {
+export class StackViewComponent implements OnChanges, DoCheck, OnInit {
    @Input() stackReferencedHistory: Array<object>;
    editableHistory: Array<object> = [];
-   sortedHistory: Array<object> = [];
+   stackSortedHistory: Array<object> = [];
    editModal: boolean = false;
 
-  constructor() {}
+  constructor(private svc: UtilsService) {}
 
   changeHistory() {
     for (let i=0; i<this.stackReferencedHistory.length; i++){
-      this.stackReferencedHistory[i] = this.makeClone(this.editableHistory[i]);
-      this.sortedHistory[i] = this.makeClone(this.stackReferencedHistory[i]);
+      this.stackReferencedHistory[i] = this.svc.makeClone(this.editableHistory)[i];
     }
-  }
 
-  makeClone(obj) {
-    if (obj instanceof Array){
-      let clone = [];
-      for (let i=0; i < obj.length; i++){
-        if ("object"===typeof obj[i])
-          clone[i] = this.makeClone(obj[i]);
-        else
-          clone[i] = obj[i];
-      }
-      return clone;
-    }
-    let clone = {};
-    for (let prop in obj) {
-      if (obj.hasOwnProperty(prop)) {
-        if ("object"===typeof obj[prop])
-          clone[prop] = this.makeClone(obj[prop]);
-        else
-          clone[prop] = obj[prop];
-      }
-    }
-    return clone;
-  }
-
-  stackReferencedHistorySort(){
-    if (this.sortedHistory === undefined) return;
-    this.sortedHistory.sort((item1: object, item2: object) =>{
-      if (item1["installMethod"] < item2["installMethod"]) {
-        return -1;
-      }
-      if (item1["installMethod"] > item2["installMethod"]) {
-        return 1;
-      }
-      return 0;
-    })
+    this.stackSortedHistory = this.svc.makeCloneFromArray(this.stackReferencedHistory);
+    this.svc.historySort(this.stackSortedHistory, "installMethod");
   }
 
   ngOnChanges(): void {
-    this.stackReferencedHistorySort();
+    this.editableHistory = this.svc.makeCloneFromArray(this.stackReferencedHistory);
+    this.stackSortedHistory = this.svc.makeCloneFromArray(this.stackReferencedHistory);
 
-    for (let i=0; i<this.stackReferencedHistory.length; i++){
-      this.editableHistory[i] = this.makeClone(this.stackReferencedHistory[i]);
-      this.sortedHistory[i] = this.makeClone(this.stackReferencedHistory[i]);
-    }
+    this.svc.historySort(this.stackSortedHistory, "installMethod");
+  }
+
+  ngOnInit(): void {
+    this.svc.historySort(this.stackSortedHistory, "installMethod");
   }
 
   ngDoCheck(): void {
-    this.stackReferencedHistorySort();
+
   }
 }

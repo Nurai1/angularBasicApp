@@ -3,7 +3,7 @@
       History editor
       <button class="stack-action btn btn-sm btn-link" (click)="editModal = true" type="button">Edit</button>
     </clr-stack-header>
-    <clr-stack-block *ngFor="let rec of sortedHistory; let i = index">
+    <clr-stack-block *ngFor="let rec of stackSortedHistory; let i = index">
       <clr-stack-label>Record {{rec['installId']}}</clr-stack-label>
       <clr-stack-block>
         <clr-stack-label>Install id</clr-stack-label>

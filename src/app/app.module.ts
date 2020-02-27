@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TreeViewComponent } from './tree-view/tree-view.component';
 import { StackViewComponent } from './stack-view/stack-view.component';
 import { DatagridComponent } from './datagrid/datagrid.component';
+import { UtilsService } from './utils.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { DatagridComponent } from './datagrid/datagrid.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UtilsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

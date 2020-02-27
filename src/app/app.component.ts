@@ -12,15 +12,12 @@ import { UtilsService } from './utils.service';
 export class AppComponent implements OnInit {
   history: Array<object>;
 
-
-  constructor(private http: HttpClient, private svc: UtilsService) {
-
-  }
+  constructor(private http: HttpClient, private _utilsService: UtilsService) { }
 
   getHistory() {
     return this.http.get('assets/install_history.json')
       .subscribe((data: Array<object>) => this.history = Array.from(data));
-  }
+  };
 
   ngOnInit(): void {
     this.getHistory();

@@ -3,8 +3,7 @@ import { UtilsService } from '../utils.service';
 
 @Component({
   selector: 'app-datagrid',
-  templateUrl: './datagrid.component.html',
-  providers: [UtilsService]
+  templateUrl: './datagrid.component.html'
 })
 export class DatagridComponent implements OnInit {
   @Input() datagridReferencedHistory: Array<object>;

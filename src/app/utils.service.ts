@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -42,9 +44,8 @@ export class UtilsService {
       return cloneArr;
     }
 
-    historySort(history, key):void {
-      if (history === undefined) return;
-      history.sort((item1: object, item2: object) =>{
+    historySort(history, key):object[] {
+      return history.sort((item1: object, item2: object) =>{
         if (item1[key] < item2[key]) {
           return -1;
         }
@@ -55,5 +56,17 @@ export class UtilsService {
       })
     }
 
-  constructor() { }
+  constructor() {
+  }
+  
+  private transferableHistory = new BehaviorSubject<object[]>([]);
+
+  setHistory(arr) {
+    this.transferableHistory.next(arr);
+  }
+
+  getHistory(): Observable<object[]> {
+    return this.transferableHistory.pipe(map(items => this.historySort(items, "configStatus")));
+  };
+
 }

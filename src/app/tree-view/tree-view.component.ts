@@ -1,30 +1,26 @@
-import { Input, Component, OnChanges, DoCheck, OnInit } from '@angular/core';
+import { Input, Component, OnChanges, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { UtilsService } from '../utils.service';
 
 @Component({
   selector: 'app-tree-view',
   templateUrl: './tree-view.component.html',
-  styleUrls: ['./tree-view.component.sass'],
-  providers: [UtilsService]
+  styleUrls: ['./tree-view.component.sass']
 })
-export class TreeViewComponent implements OnChanges, DoCheck, OnInit {
+export class TreeViewComponent implements OnChanges, OnInit {
   @Input() treeReferencedHistory: Array<object>;
-  treeSortedHistory: Array<object> =[];
+  public treeSortedHistory: Observable<object[]> = this._utilsService.getHistory();
 
-  constructor(private svc: UtilsService) {}
+  constructor(private _utilsService: UtilsService) { }
 
   ngOnChanges(): void {
-    this.treeSortedHistory = this.svc.makeCloneFromArray(this.treeReferencedHistory);
-    this.svc.historySort(this.treeSortedHistory, "configStatus");
-
-    this.svc.historyDateToString(this.treeReferencedHistory);
+    let treeInitialHistory = this._utilsService.makeCloneFromArray(this.treeReferencedHistory);
+    this._utilsService.setHistory(treeInitialHistory);
+    this._utilsService.historyDateToString(this.treeReferencedHistory);
   }
 
   ngOnInit():void {
-    this.svc.historySort(this.treeSortedHistory, "configStatus");
-  }
-
-  ngDoCheck():void {
 
   }
 }

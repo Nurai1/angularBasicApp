@@ -1,7 +1,7 @@
 <clr-tree>
   <clr-tree-node class="app__tree">
     History
-    <clr-tree-node *ngFor="let rec of treeSortedHistory; let i = index;">
+    <clr-tree-node *ngFor="let rec of (treeSortedHistory| async)">
       Record {{rec['installId']}}
 
       <clr-tree-node>
